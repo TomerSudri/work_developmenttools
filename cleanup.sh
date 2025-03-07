@@ -1,15 +1,19 @@
-echo "🚀 מתחיל ניקוי של הקבצים שהוגדרו..."
 
-BACKUP_DIR="/backup"
+NETWORK="drupal-network"
+MYSQL_CONTAINER="mysql-container"
+DRUPAL_CONTAINER="drupal-container"
 
-echo "🔹 מוחק את כל קבצי הגיבוי בתיקייה $BACKUP_DIR..."
-rm -rf $BACKUP_DIR/*
+echo "מתחיל ניקוי של הקבצים שהוגדרו"
 
-if [ $? -eq 0 ]; then
-    echo "✅ כל קבצי הגיבוי נמחקו בהצלחה!"
-else
-    echo "❌ שגיאה בניקוי הקבצים!"
-    exit 1
-fi
+echo "עוצר ומוחק את קונטיינר Drupal"
+docker stop $DRUPAL_CONTAINER 2>/dev/null || true
+docker rm $DRUPAL_CONTAINER 2>/dev/null || true
 
-echo "🎉 תהליך הניקוי הסתיים!"
+echo "עוצר ומוחק את קונטיינר MySQL"
+docker stop $MYSQL_CONTAINER 2>/dev/null || true
+docker rm $MYSQL_CONTAINER 2>/dev/null || true
+
+echo "מוחק את רשת Docker"
+docker network rm $NETWORK 2>/dev/null || true
+
+echo "🎉 תהליך הניקוי הסתיים"
