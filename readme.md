@@ -63,8 +63,11 @@ chmod +x setup.sh backup.sh restore.sh cleanup.sh
 קביעת ההגדרות של  Drupal
 לפתוח דפדפן ולנווט לכתובת: http://localhost:8080 
 יש לבצע את שלבי ההתקנה של Drupal: 
+
 •	בחירת שפה- עברית/אנגלית
+
 •	בחירת פרופיל התקנה- standart
+
 •	הגדרה של חיבור בסיס הנתונים-
        סוג מסד הנתונים- MySQL
        שם מסד הנתונים- my_database
@@ -72,8 +75,11 @@ chmod +x setup.sh backup.sh restore.sh cleanup.sh
        סיסמת מסד הנתונים- my-secret-pw
        שם שרת- mysql-container
        מספר פורט- 3306
+       
 •	הגדרת שם האתר
+
 •	יצירת חשבון מנהל לאתר עם שם המשתמש demoadmin והסיסמה secretpass.
+
 •	ליצור חשבונות נוספים לשאר חברי הצוות במידת הצורך
 
 
